@@ -30,5 +30,14 @@
   }
   switchy.platform = platform;
 
-  switchy.isMobile = (switchy.platform === 'Mobile');
+  switchy.isMobile = (
+    (localStorage && localStorage.getItem('switchy') === 'Mobile') ||
+    switchy.platform === 'Mobile'
+  );
+
+  switchy.setPlatform = function (value) {
+    if (localStorage) {
+      localStorage.setItem('switchy', value);
+    }
+  };
 })(window.switchy = window.switchy || {});
