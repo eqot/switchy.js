@@ -30,10 +30,7 @@
   }
   switchy.platform = platform;
 
-  switchy.isMobile = (
-    (localStorage && localStorage.getItem('switchy') === 'Mobile') ||
-    switchy.platform === 'Mobile'
-  );
+  switchy.isMobile = localStorage ? localStorage.getItem('switchy') === 'Mobile' : switchy.platform === 'Mobile'
 
   switchy.setPlatform = function (value) {
     if (localStorage) {
